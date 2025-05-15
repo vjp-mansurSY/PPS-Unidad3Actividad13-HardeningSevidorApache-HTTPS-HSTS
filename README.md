@@ -1129,6 +1129,7 @@ apt update
 apt install libapache2-mod-security2
 ```
 
+![image](https://github.com/user-attachments/assets/fe30f9ff-5f1b-4c52-bf2e-0812b529518f)
 
 
 Esto instala `mod_security` y lo habilita como módulo de Apache.
@@ -1143,6 +1144,7 @@ cp /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.co
 nano /etc/modsecurity/modsecurity.conf
 ```
 
+
 Asegúrate de que esté en modo "detección" primero (fase de pruebas):
 
 ```apache
@@ -1150,6 +1152,9 @@ SecRuleEngine DetectionOnly
 ```
 
 ![](images/hard31.png)
+
+![image](https://github.com/user-attachments/assets/6500a7ce-2414-4ae2-b375-6e3e825fb664)
+
 
 
 > 🔁 Más adelante puedes cambiar a `On` para bloquear tráfico malicioso real.
@@ -1169,6 +1174,9 @@ Nos debe de dar como resultado: ` security2_module (shared)`
 
 ![](images/hard32.png)
 
+![image](https://github.com/user-attachments/assets/3c8d3833-fecd-4a1f-9d2a-e7f268734270)
+
+
 ---
 
 ### ✅  Descargar OWASP ModSecurity Core Rule Set (CRS)
@@ -1183,6 +1191,9 @@ cp crs-setup.conf.example crs-setup.conf
 ```
 
 ---
+
+![image](https://github.com/user-attachments/assets/ffc23e2d-b6b7-4c06-8949-2e7b707cd93d)
+
 
 ### ✅  Incluir las reglas OWASP en la configuración
 
@@ -1201,6 +1212,9 @@ Si nos muestran diferentes módulos de reglas, están habilitados y no es necesa
 
 ![](images/hard33.png)
 
+![image](https://github.com/user-attachments/assets/7b142eef-3709-4c9b-b505-065adc61a4ea)
+
+
 En el caso de que no te aparezcan cargados los módulos, edita el archivo de configuración de Apache para que cargue las reglas. Puedes hacer esto en un archivo `.conf` dentro de `/etc/apache2/conf-available/`:
 
 ```bash
@@ -1214,6 +1228,9 @@ Y añade lo siguiente:
 IncludeOptional /etc/modsecurity/coreruleset/crs-setup.conf
 IncludeOptional /etc/modsecurity/coreruleset/rules/*.conf
 ```
+
+![image](https://github.com/user-attachments/assets/cb927983-1538-4174-801b-0f4ff5a33409)
+
 
 Para probar, es conveniente que el resto de los sitios virtuales estén deshabilitados. Si has estado haciendo pruebas con el sitio `pps.edu` u otro, es conveniente que lo revises y deshabilites y habilita `000-default`.
 
@@ -1245,6 +1262,9 @@ Cambia:
 ```apache
 SecRuleEngine On
 ```
+
+![image](https://github.com/user-attachments/assets/04b72e57-a305-43cf-bfc9-630daad0d419)
+
 
 Esto hará que el WAF **bloquee solicitudes peligrosas automáticamente**.
 
