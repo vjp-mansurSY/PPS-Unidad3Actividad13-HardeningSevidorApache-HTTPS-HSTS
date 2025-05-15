@@ -1300,6 +1300,10 @@ cat /var/log/apache2/modsec_audit.log
 
 ![](images/hard35.png)
 
+![image](https://github.com/user-attachments/assets/1b31f402-620f-4feb-921d-d36b01b0b468)
+
+
+
 También puede usar el `error.log` de Apache para errores graves.
 
 ---
